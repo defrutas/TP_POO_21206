@@ -1,0 +1,15 @@
+C:\Users\defrutas\source\repos\trabalhoPOO_21206\GestaodeEmergencia\bin\Debug\net6.0\GestaodeEmergencia.exe
+C:\Users\defrutas\source\repos\trabalhoPOO_21206\GestaodeEmergencia\bin\Debug\net6.0\GestaodeEmergencia.deps.json
+C:\Users\defrutas\source\repos\trabalhoPOO_21206\GestaodeEmergencia\bin\Debug\net6.0\GestaodeEmergencia.runtimeconfig.json
+C:\Users\defrutas\source\repos\trabalhoPOO_21206\GestaodeEmergencia\bin\Debug\net6.0\GestaodeEmergencia.dll
+C:\Users\defrutas\source\repos\trabalhoPOO_21206\GestaodeEmergencia\bin\Debug\net6.0\GestaodeEmergencia.pdb
+C:\Users\defrutas\source\repos\trabalhoPOO_21206\GestaodeEmergencia\obj\Debug\net6.0\GestaodeEmergencia.csproj.AssemblyReference.cache
+C:\Users\defrutas\source\repos\trabalhoPOO_21206\GestaodeEmergencia\obj\Debug\net6.0\GestaodeEmergencia.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\defrutas\source\repos\trabalhoPOO_21206\GestaodeEmergencia\obj\Debug\net6.0\GestaodeEmergencia.AssemblyInfoInputs.cache
+C:\Users\defrutas\source\repos\trabalhoPOO_21206\GestaodeEmergencia\obj\Debug\net6.0\GestaodeEmergencia.AssemblyInfo.cs
+C:\Users\defrutas\source\repos\trabalhoPOO_21206\GestaodeEmergencia\obj\Debug\net6.0\GestaodeEmergencia.csproj.CoreCompileInputs.cache
+C:\Users\defrutas\source\repos\trabalhoPOO_21206\GestaodeEmergencia\obj\Debug\net6.0\GestaodeEmergencia.dll
+C:\Users\defrutas\source\repos\trabalhoPOO_21206\GestaodeEmergencia\obj\Debug\net6.0\refint\GestaodeEmergencia.dll
+C:\Users\defrutas\source\repos\trabalhoPOO_21206\GestaodeEmergencia\obj\Debug\net6.0\GestaodeEmergencia.pdb
+C:\Users\defrutas\source\repos\trabalhoPOO_21206\GestaodeEmergencia\obj\Debug\net6.0\GestaodeEmergencia.genruntimeconfig.cache
+C:\Users\defrutas\source\repos\trabalhoPOO_21206\GestaodeEmergencia\obj\Debug\net6.0\ref\GestaodeEmergencia.dll
