@@ -27,6 +27,25 @@ namespace GestaodeEmergencia
 
             //Person p3 = new Person();
             //Console.WriteLine("ID: {0}\nName: {1}\nGender: {2}\nAddress: {3}\nInfection Status: {4}\n\n", p3.IDperson, p3.Name, p3.Gender, p3.Address, p3.Infection);
+
+            // Create an instance of Metrics or a derived class
+            Metrics metrics = new Metrics();
+
+            // Create a list of Person objects
+            List<Person> infectedPeople = new List<Person>
+            {
+                new Person("Alice", GenderType.FEMALE, "Address1", true),
+                new Person("Bob", GenderType.MALE, "Address2", true),
+                new Person("Charlie", GenderType.NONBINARY, "Address3", false),            
+            };
+
+            // Update the statistics
+            metrics.UpdateStatistics(infectedPeople);
+
+            // Display the results or perform assertions based on your testing framework
+            Console.WriteLine($"Total Cases: {metrics.TotCases}");
+            Console.WriteLine($"Active Cases: {metrics.ActiveCases}");
+            Console.WriteLine($"Recovered Cases: {metrics.RecoveredCases}");
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Schema;
 
 namespace GestaodeEmergencia
 {
@@ -13,7 +14,7 @@ namespace GestaodeEmergencia
     {
         #region ATTRIBUTES
         public string name; //name of the location
-        public List<Person> people; //list of Person object associated with this location
+        public List<Person> people; //store instances of Person associated with this location
         public int population;  //represents the total population of said location
         #endregion
 
@@ -24,7 +25,7 @@ namespace GestaodeEmergencia
         public Location(string n, int pop)
         {
             name = n;
-            people = new List<Person>();
+            people = new List<Person>(); //store instances of Person associated with this location and store them in "people" variable
             population = pop;
         }
 
