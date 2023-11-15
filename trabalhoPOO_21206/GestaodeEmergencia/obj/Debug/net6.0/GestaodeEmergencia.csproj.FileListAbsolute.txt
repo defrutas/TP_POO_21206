@@ -13,3 +13,17 @@ C:\Users\defrutas\source\repos\trabalhoPOO_21206\GestaodeEmergencia\obj\Debug\ne
 C:\Users\defrutas\source\repos\trabalhoPOO_21206\GestaodeEmergencia\obj\Debug\net6.0\GestaodeEmergencia.pdb
 C:\Users\defrutas\source\repos\trabalhoPOO_21206\GestaodeEmergencia\obj\Debug\net6.0\GestaodeEmergencia.genruntimeconfig.cache
 C:\Users\defrutas\source\repos\trabalhoPOO_21206\GestaodeEmergencia\obj\Debug\net6.0\ref\GestaodeEmergencia.dll
+C:\Users\flavi\Desktop\trabalhoPOO_21206\GestaodeEmergencia\bin\Debug\net6.0\GestaodeEmergencia.exe
+C:\Users\flavi\Desktop\trabalhoPOO_21206\GestaodeEmergencia\bin\Debug\net6.0\GestaodeEmergencia.deps.json
+C:\Users\flavi\Desktop\trabalhoPOO_21206\GestaodeEmergencia\bin\Debug\net6.0\GestaodeEmergencia.runtimeconfig.json
+C:\Users\flavi\Desktop\trabalhoPOO_21206\GestaodeEmergencia\bin\Debug\net6.0\GestaodeEmergencia.dll
+C:\Users\flavi\Desktop\trabalhoPOO_21206\GestaodeEmergencia\bin\Debug\net6.0\GestaodeEmergencia.pdb
+C:\Users\flavi\Desktop\trabalhoPOO_21206\GestaodeEmergencia\obj\Debug\net6.0\GestaodeEmergencia.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\flavi\Desktop\trabalhoPOO_21206\GestaodeEmergencia\obj\Debug\net6.0\GestaodeEmergencia.AssemblyInfoInputs.cache
+C:\Users\flavi\Desktop\trabalhoPOO_21206\GestaodeEmergencia\obj\Debug\net6.0\GestaodeEmergencia.AssemblyInfo.cs
+C:\Users\flavi\Desktop\trabalhoPOO_21206\GestaodeEmergencia\obj\Debug\net6.0\GestaodeEmergencia.csproj.CoreCompileInputs.cache
+C:\Users\flavi\Desktop\trabalhoPOO_21206\GestaodeEmergencia\obj\Debug\net6.0\GestaodeEmergencia.dll
+C:\Users\flavi\Desktop\trabalhoPOO_21206\GestaodeEmergencia\obj\Debug\net6.0\refint\GestaodeEmergencia.dll
+C:\Users\flavi\Desktop\trabalhoPOO_21206\GestaodeEmergencia\obj\Debug\net6.0\GestaodeEmergencia.pdb
+C:\Users\flavi\Desktop\trabalhoPOO_21206\GestaodeEmergencia\obj\Debug\net6.0\GestaodeEmergencia.genruntimeconfig.cache
+C:\Users\flavi\Desktop\trabalhoPOO_21206\GestaodeEmergencia\obj\Debug\net6.0\ref\GestaodeEmergencia.dll

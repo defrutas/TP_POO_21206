@@ -10,7 +10,9 @@ namespace GestaodeEmergencia
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("name: ");
+            //Console.WriteLine("name: ");
+            //string name = Console.ReadLine();
+
             string name = Console.ReadLine();
 
             Person p1 = new Person(name, GenderType.MALE, "Guimaraes", true);

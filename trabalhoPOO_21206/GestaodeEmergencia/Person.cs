@@ -68,7 +68,6 @@ namespace GestaodeEmergencia
         #region PROPERTIES
         public int IDperson
         {
-            set { id_person = value; } //EXAMPLE ONLY, id should be automatically added
             get { return id_person; }
         }
         public string Name
