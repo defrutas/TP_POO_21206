@@ -16,18 +16,16 @@ namespace GestaodeEmergencia
     /// <summary>
     /// class to create person objects
     /// </summary>
-    class Person
+    public class Person
     {
         #region ATTRIBUTES
 
         private static int nextId = 1;
-
-        private int id_person;  //id to indentify each individual person
         private string name;    //name of the person
         private GenderType gender;  //gender
         private string address; //address
-        private bool infected;  //if the person is infected or not
-
+        private bool infection;  //if the person is infected or not
+        private int age;
 
         #endregion
 
@@ -39,11 +37,12 @@ namespace GestaodeEmergencia
         /// </summary>
         public Person()
         {
-            id_person = 1;
+            IDperson = 1;
             name = "John";
             gender = GenderType.MALE;
             address = "Barcelos";
-            infected = true;
+            age = 18;
+            infection = true;
         }
 
         /// <summary>
@@ -54,22 +53,20 @@ namespace GestaodeEmergencia
         /// <param gender="gen"></param>
         /// <param address="addr"></param>
         /// <param infected="inf"></param>
-        public Person(string name, GenderType gen, string addr, bool inf)
+        public Person(string name, GenderType gender, string address, int age, bool infection)
         {
-            id_person = nextId++;
-            this.name = name;
-            gender = gen;
-            address = addr;
-            infected = inf;
+            IDperson = nextId++;
+            Name = name;
+            Gender = gender;
+            Address = address;
+            Infection = infection;
+            this.age = age;
         }
 
         #endregion
 
         #region PROPERTIES
-        public int IDperson
-        {
-            get { return id_person; }
-        }
+        public int IDperson { get; private set; }
         public string Name
         {
             set { name = value; }
@@ -87,9 +84,16 @@ namespace GestaodeEmergencia
         }
         public bool Infection
         {
-            set { infected = value; }
-            get { return infected; }
+            set { infection = value; }
+            get { return infection; }
         }
+
+        public int Age
+        {
+            set { age = value; }
+            get { return age; }
+        }
+        
         #endregion
 
         #endregion
