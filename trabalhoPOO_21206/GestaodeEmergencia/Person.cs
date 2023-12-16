@@ -53,15 +53,16 @@ namespace GestaodeEmergencia
         /// <param gender="gen"></param>
         /// <param address="addr"></param>
         /// <param infected="inf"></param>
-        public Person(string name, GenderType gender, string address, int age, bool infection)
+        public Person(string name, GenderType gender, string address, bool infection, int age)
         {
             IDperson = nextId++;
             Name = name;
             Gender = gender;
             Address = address;
             Infection = infection;
-            this.age = age;
+            Age = age; // Use the specified age value
         }
+
 
         #endregion
 

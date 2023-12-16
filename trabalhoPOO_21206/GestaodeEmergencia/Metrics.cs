@@ -18,11 +18,11 @@ namespace GestaodeEmergencia
         #endregion
 
         #region METHODS
+        #region CONSTRUCTORS
         /// <summary>
-        /// Takes a list of Person objects named infectedPeople as a parameter and returns void.
-        /// Counts the total number of cases, active cases, and recovered cases.
+        /// Takes a list of Case objects and updates the metrics based on the provided cases
+        /// Counts total number of cases, active cases and recovered cases
         /// </summary>
-        /// <param name="infectedPeople"></param>
         public virtual void UpdateStatistics(List<Case> cases)
         {
             totalCases = cases.Count;
@@ -31,22 +31,24 @@ namespace GestaodeEmergencia
         }
         #endregion
 
-        #region CONSTRUCTORS
-
-        #endregion
-
         #region PROPERTIES
-
+        /// <summary>
+        /// read-only property to get total cases
+        /// </summary>
         public int TotalCases
         {
             get { return totalCases; }
         }
-
+        /// <summary>
+        /// read-only property to get active cases
+        /// </summary>
         public int ActiveCases
         {
             get { return activeCases; }
         }
-
+        /// <summary>
+        /// read-only property to get recovered cases
+        /// </summary>
         public int RecoveredCases
         {
             get { return recoveredCases; }
@@ -57,9 +59,14 @@ namespace GestaodeEmergencia
         #region OVERRIDES
 
         #endregion
+
+        #endregion
     }
 
-
+    /// <summary>
+    /// Derived from Metrics
+    /// Tracking metrics organized by age.
+    /// </summary>
     class AgeMetrics : Metrics
     {
         #region ATTRIBUTES
@@ -69,7 +76,9 @@ namespace GestaodeEmergencia
         #region METHODS
 
         #region CONSTRUCTORS
-
+        /// <summary>
+        /// Contructor for age distribution
+        /// </summary>
         public AgeMetrics()
         {
             ageDistribution = new Dictionary<int, int>();
@@ -78,7 +87,9 @@ namespace GestaodeEmergencia
         #endregion
 
         #region PROPERTIES
-
+        /// <summary>
+        /// Read-only property to get the age distribution dictionary.
+        /// </summary>
         public Dictionary<int, int> AgeDistribution
         {
             get { return ageDistribution; }
@@ -87,7 +98,11 @@ namespace GestaodeEmergencia
         #endregion
 
         #region OVERRIDES
-
+        /// <summary>
+        /// Override the base class methods to include additional logic for age distribution.
+        /// Counts the number of cases for each age
+        /// </summary>
+        /// <param name="cases"></param>
         public override void UpdateStatistics(List<Case> cases)
         {
             base.UpdateStatistics(cases); // Call the base class method to update total, active, and recovered cases
@@ -115,61 +130,102 @@ namespace GestaodeEmergencia
         #endregion
     }
 
-
     /// <summary>
-    /// metrics by gender
+    /// Derived from Metrics
+    /// Tracking metrics organized by age
     /// </summary>
     class GenderMetrics : Metrics
     {
         #region ATTRIBUTES
-        private int maleCases;  //cases for male
-        private int femaleCases;    //cases for female
-        private int nonBinaryCases; //cases for non binary
+        private int maleCases;      //Count of male cases
+        private int femaleCases;    //Count of female cases
+        private int nonBinaryCases; //Count of nonBinaryCases
         #endregion
 
         #region METHODS
 
         #region CONSTRUCTORS
-
-        public GenderMetrics(int m, int f, int nb)
+        /// <summary>
+        /// Default Constructor for gender metrics
+        /// </summary>
+        public GenderMetrics()
         {
-            maleCases = m;
-            femaleCases = f;
-            nonBinaryCases = nb;
+            maleCases = 0;
+            femaleCases = 0;
+            nonBinaryCases = 0;
         }
         #endregion
 
         #region PROPERTIES
+        /// <summary>
+        /// Read/Write property to count male cases
+        /// </summary>
         public int MaleCases
         {
             get { return maleCases; }
+            set { maleCases = value; }
         }
-
+        /// <summary>
+        /// Read/Write property to count female cases
+        /// </summary>
         public int FemaleCases
         {
             get { return femaleCases; }
+            set { femaleCases = value; }
         }
-
+        /// <summary>
+        /// Read/Write property to count non-binary cases
+        /// </summary>
         public int NonBinaryCases
         {
             get { return nonBinaryCases; }
+            set { nonBinaryCases = value; }
         }
         #endregion
 
         #region OVERRIDES
+        /// <summary>
+        /// Overrides the base class method to include additional logic for updating 
+        /// counts based on the gender of infected persons.
+        /// </summary>
+        /// <param name="cases"></param>
+        public override void UpdateStatistics(List<Case> cases)
+        {
+            foreach (var person in cases.Select(c => c.InfectedPerson))
+            {
+                GenderType gender = person.Gender;
 
-        //public override void UpdateStatistics(List<Person> infectedPeople)
-        //{
-        //    //add specific code relative to gender
-        //}
+                switch (gender)
+                {
+                    case GenderType.MALE:
+                        MaleCases++;
+                        break;
+                    case GenderType.FEMALE:
+                        FemaleCases++;
+                        break;
+                    case GenderType.NONBINARY:
+                        NonBinaryCases++;
+                        break;
+                }
+            }
+        }
 
+        // ClearMetrics method to reset the counts
+        private void ClearMetrics()
+        {
+            MaleCases = 0;
+            FemaleCases = 0;
+            NonBinaryCases = 0;
+        }
         #endregion
 
         #endregion
     }
 
+
     /// <summary>
-    /// Metrics by region
+    /// Derived from Metrics
+    /// Tracking metrics organized by age
     /// </summary>
     class RegionMetrics : Metrics
     {
@@ -180,7 +236,9 @@ namespace GestaodeEmergencia
         #region METHODS
 
         #region CONSTRUCTORS
-
+        /// <summary>
+        /// constructor for region metrics
+        /// </summary>
         public RegionMetrics()
         {
             regionDistribution = new Dictionary<string, int>();
@@ -189,7 +247,9 @@ namespace GestaodeEmergencia
         #endregion
 
         #region PROPERTIES
-
+        /// <summary>
+        /// Read-only property to get the region distribution dictionary
+        /// </summary>
         public Dictionary<string, int> RegionDistribution
         {
             get { return regionDistribution; }
@@ -198,7 +258,11 @@ namespace GestaodeEmergencia
         #endregion
 
         #region OVERRIDES
-
+        /// <summary>
+        /// Overrides the base class method to include additional logic for updating counts
+        /// based on the region of infected persons.
+        /// </summary>
+        /// <param name="cases"></param>
         public override void UpdateStatistics(List<Case> cases)
         {
             base.UpdateStatistics(cases); // Call the base class method to update total, active, and recovered cases
@@ -220,11 +284,7 @@ namespace GestaodeEmergencia
                 }
             }
         }
-
         #endregion
-
         #endregion
     }
-
-
 }

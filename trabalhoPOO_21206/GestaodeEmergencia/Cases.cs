@@ -13,7 +13,6 @@ namespace GestaodeEmergencia
         #endregion
 
         #region METHODS
-
         #region CONSTRUCTORS
 
         public Cases()
@@ -33,9 +32,6 @@ namespace GestaodeEmergencia
         #endregion
 
         #region OVERRIDES
-
-        // You can add methods here for manipulating the case list, if needed
-
         #endregion
 
         #endregion
