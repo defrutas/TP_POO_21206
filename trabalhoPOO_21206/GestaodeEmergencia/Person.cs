@@ -19,13 +19,12 @@ namespace GestaodeEmergencia
     public class Person
     {
         #region ATTRIBUTES
-
-        private static int nextId = 1;
-        private string name;    //name of the person
-        private GenderType gender;  //gender
-        private string address; //address
-        private bool infection;  //if the person is infected or not
-        private int age;
+        protected static int nextId = 1;
+        protected string name;    //name of the person
+        protected GenderType gender;  //gender
+        protected string address; //address
+        protected bool infection;  //if the person is infected or not
+        protected int age;
 
         #endregion
 
@@ -42,7 +41,6 @@ namespace GestaodeEmergencia
             gender = GenderType.MALE;
             address = "Barcelos";
             age = 18;
-            infection = true;
         }
 
         /// <summary>
@@ -59,7 +57,6 @@ namespace GestaodeEmergencia
             Name = name;
             Gender = gender;
             Address = address;
-            Infection = infection;
             Age = age; // Use the specified age value
         }
 
@@ -83,11 +80,6 @@ namespace GestaodeEmergencia
             set { address = value; }
             get { return address; }
         }
-        public bool Infection
-        {
-            set { infection = value; }
-            get { return infection; }
-        }
 
         public int Age
         {
@@ -98,23 +90,5 @@ namespace GestaodeEmergencia
         #endregion
 
         #endregion
-    }
-
-    class InfectedPerson : Person
-    {
-        public DateTime InfectionDate { get; set; }
-        // Additional properties and methods related to infection
-    }
-
-    class RecoveredPerson : Person
-    {
-        public DateTime RecoveryDate { get; set; }
-        // Additional properties and methods related to recovery
-    }
-
-    class DeceasedPerson : Person
-    {
-        public DateTime DeathDate { get; set; }
-        // Additional properties and methods related to death
     }
 }
