@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using ClassLibrary1;
 
 namespace GestaodeEmergencia
 {
@@ -13,42 +14,42 @@ namespace GestaodeEmergencia
             GenderMetrics genderMetrics = new GenderMetrics();
             RegionMetrics regionMetrics = new RegionMetrics();
 
-            // Create a list of Person objects
-            List<Patient> patients = new List<Patient>
-            {
-                new Patient("Alice", GenderType.FEMALE, "Address1", true, 18),
-                new Patient("Bob", GenderType.MALE, "Address2", true, 22),
-                new Patient("Charlie", GenderType.NONBINARY, "Address3", false, 22),
-                new Patient("Ana", GenderType.FEMALE, "Address4", true, 20),
-                new Patient("Flavio", GenderType.MALE, "Address5", false, 23),
+            
+            Patients patientManager = new Patients();
+            #region PATIENTS LIST
+            patientManager.AddPatient("Alice", GenderType.FEMALE, "Address1", true, 18);
+            patientManager.AddPatient("Bob", GenderType.MALE, "Address2", true, 22);
+            patientManager.AddPatient("Charlie", GenderType.NONBINARY, "Address3", false, 22);
+            patientManager.AddPatient("Ana", GenderType.FEMALE, "Address4", true, 20);
+            patientManager.AddPatient("Flavio", GenderType.MALE, "Address5", false, 23);
 
-                new Patient("Eva", GenderType.FEMALE, "Address1", true, 20),
-                new Patient("David", GenderType.MALE, "Address2", false, 21),
-                new Patient("Grace", GenderType.FEMALE, "Address3", true, 19),
-                new Patient("Hank", GenderType.MALE, "Address4", false, 22),
-                new Patient("Isabel", GenderType.FEMALE, "Address5", true, 23),
+            patientManager.AddPatient("Eva", GenderType.FEMALE, "Address1", true, 20);
+            patientManager.AddPatient("David", GenderType.MALE, "Address2", false, 21);
+            patientManager.AddPatient("Grace", GenderType.FEMALE, "Address3", true, 19);
+            patientManager.AddPatient("Hank", GenderType.MALE, "Address4", false, 22);
+            patientManager.AddPatient("Isabel", GenderType.FEMALE, "Address5", true, 23);
 
-                new Patient("Jack", GenderType.MALE, "Address1", false, 18),
-                new Patient("Karen", GenderType.FEMALE, "Address2", true, 20),
-                new Patient("Leo", GenderType.MALE, "Address3", false, 22),
-                new Patient("Mia", GenderType.FEMALE, "Address4", true, 21),
-                new Patient("Nathan", GenderType.MALE, "Address4", false, 19),
+            patientManager.AddPatient("Jack", GenderType.MALE, "Address1", false, 18);
+            patientManager.AddPatient("Karen", GenderType.FEMALE, "Address2", true, 20);
+            patientManager.AddPatient("Leo", GenderType.MALE, "Address3", false, 22);
+            patientManager.AddPatient("Mia", GenderType.FEMALE, "Address4", true, 21);
+            patientManager.AddPatient("Nathan", GenderType.MALE, "Address4", false, 19);
 
-                new Patient("Olivia", GenderType.FEMALE, "Address1", true, 23),
-                new Patient("Paul", GenderType.MALE, "Address2", false, 18),
-                new Patient("Quinn", GenderType.NONBINARY, "Address3", true, 20),
-                new Patient("Ryan", GenderType.MALE, "Address4", false, 19),
-                new Patient("Sara", GenderType.FEMALE, "Address5", true, 22),
+            patientManager.AddPatient("Olivia", GenderType.FEMALE, "Address1", true, 23);
+            patientManager.AddPatient("Paul", GenderType.MALE, "Address2", false, 18);
+            patientManager.AddPatient("Quinn", GenderType.NONBINARY, "Address3", true, 20);
+            patientManager.AddPatient("Ryan", GenderType.MALE, "Address4", false, 19);
+            patientManager.AddPatient("Sara", GenderType.FEMALE, "Address5", true, 22);
 
-                new Patient("Thomas", GenderType.MALE, "Address1", false, 23),
-                new Patient("Uma", GenderType.FEMALE, "Address2", true, 18),
-                new Patient("Vincent", GenderType.MALE, "Address3", false, 21),
-                new Patient("Wendy", GenderType.FEMALE, "Address4", true, 20),
-                new Patient("Xander", GenderType.MALE, "Address5", false, 19),
-            };
-
+            patientManager.AddPatient("Thomas", GenderType.MALE, "Address1", false, 23);
+            patientManager.AddPatient("Uma", GenderType.FEMALE, "Address2", true, 18);
+            patientManager.AddPatient("Vincent", GenderType.MALE, "Address3", false, 21);
+            patientManager.AddPatient("Wendy", GenderType.FEMALE, "Address4", true, 20);
+            patientManager.AddPatient("Xander", GenderType.MALE, "Address5", false, 19);
+            #endregion
+            
             // Display information about each person
-            foreach (var patient in patients)
+            foreach (var patient in patientManager.GetPatients())
             {
                 Console.WriteLine($"ID: {patient.PatientID}");
                 Console.WriteLine($"Name: {patient.Name}");
@@ -58,17 +59,16 @@ namespace GestaodeEmergencia
                 Console.WriteLine($"Infection Status: {patient.Infection}\n");
             }
 
-            // Create cases based on the list of people
-            List<Case> cases = new List<Case>();
+
+            Cases caseManager = new Cases();
 
             // Populate the list of cases
-            foreach (var patient in patients)
+            foreach (var patient in patientManager.GetPatients())
             {
-                Case newCase = new Case(patient, DateTime.Now, patient.Infection);
-                cases.Add(newCase);
+                caseManager.AddCase(patient, DateTime.Now, patient.Infection);
             }
 
-            foreach (var Case in cases)
+            foreach (var Case in caseManager.GetCases())
             {
                 Console.WriteLine($"CaseID: {Case.CaseId}");
                 Console.WriteLine($"InfectedPerson: {Case.InfectedPerson}");
@@ -77,7 +77,7 @@ namespace GestaodeEmergencia
             }
 
             // Update the metrics based on the list of cases
-            metrics.UpdateStatistics(cases);
+            metrics.UpdateStatistics(caseManager.GetCases());
 
             // Display the results
             Console.WriteLine($"Total Cases: {metrics.TotalCases}");
@@ -85,7 +85,7 @@ namespace GestaodeEmergencia
             Console.WriteLine($"Recovered Cases: {metrics.RecoveredCases}\n");
 
             // Update the age metrics based on the list of cases
-            ageMetrics.UpdateStatistics(cases);
+            ageMetrics.UpdateStatistics(caseManager.GetCases());
 
             // Display the age distribution from AgeMetrics
             Console.WriteLine("Age Distribution:");
@@ -96,7 +96,7 @@ namespace GestaodeEmergencia
             Console.WriteLine("\n");
 
             // Assuming 'cases' is a list of Case objects
-            genderMetrics.UpdateStatistics(cases);
+            genderMetrics.UpdateStatistics(caseManager.GetCases());
 
             // Retrieve the counts
             int maleCases = genderMetrics.MaleCases;
@@ -104,12 +104,12 @@ namespace GestaodeEmergencia
             int nonBinaryCases = genderMetrics.NonBinaryCases;
 
             // Display the gender distribution from genderMetrics
-            Console.WriteLine($"Male Cases: {genderMetrics.MaleCases}");
-            Console.WriteLine($"Female Cases: {genderMetrics.FemaleCases}");
-            Console.WriteLine($"Non-Binary Cases: {genderMetrics.NonBinaryCases}\n");
+            Console.WriteLine($"Male Cases: {genderMetrics.MalePercentage}%");
+            Console.WriteLine($"Female Cases: {genderMetrics.FemalePercentage}%");
+            Console.WriteLine($"Non-Binary Cases: {genderMetrics.NonBinaryPercentage}%\n");
 
             // Update the region metrics based on the list of cases
-            regionMetrics.UpdateStatistics(cases);
+            regionMetrics.UpdateStatistics(caseManager.GetCases());
 
             // Display the region distribution from RegionMetrics
             Console.WriteLine("Region Distribution:");

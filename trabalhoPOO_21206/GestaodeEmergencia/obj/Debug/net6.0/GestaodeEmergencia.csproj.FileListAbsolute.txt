@@ -57,3 +57,6 @@ C:\Users\defrutas\Desktop\trabalhoPOO_21206\GestaodeEmergencia\obj\Debug\net6.0\
 C:\Users\defrutas\Desktop\trabalhoPOO_21206\GestaodeEmergencia\obj\Debug\net6.0\GestaodeEmergencia.pdb
 C:\Users\defrutas\Desktop\trabalhoPOO_21206\GestaodeEmergencia\obj\Debug\net6.0\GestaodeEmergencia.genruntimeconfig.cache
 C:\Users\defrutas\Desktop\trabalhoPOO_21206\GestaodeEmergencia\obj\Debug\net6.0\ref\GestaodeEmergencia.dll
+C:\Users\defrutas\Desktop\trabalhoPOO_21206\GestaodeEmergencia\bin\Debug\net6.0\ClassLibrary1.dll
+C:\Users\defrutas\Desktop\trabalhoPOO_21206\GestaodeEmergencia\bin\Debug\net6.0\ClassLibrary1.pdb
+C:\Users\defrutas\Desktop\trabalhoPOO_21206\GestaodeEmergencia\obj\Debug\net6.0\GestaodeEmergencia.csproj.CopyComplete

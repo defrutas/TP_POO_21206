@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestaodeEmergencia", "GestaodeEmergencia\GestaodeEmergencia.csproj", "{EFBDBEF2-0B42-462E-A2D9-767E94916ACB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestaodeEmergencia", "GestaodeEmergencia\GestaodeEmergencia.csproj", "{EFBDBEF2-0B42-462E-A2D9-767E94916ACB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary1", "ClassLibrary1\ClassLibrary1.csproj", "{914DBA83-5C70-4D97-BBE8-F4E4855540FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{EFBDBEF2-0B42-462E-A2D9-767E94916ACB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFBDBEF2-0B42-462E-A2D9-767E94916ACB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFBDBEF2-0B42-462E-A2D9-767E94916ACB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{914DBA83-5C70-4D97-BBE8-F4E4855540FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{914DBA83-5C70-4D97-BBE8-F4E4855540FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{914DBA83-5C70-4D97-BBE8-F4E4855540FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{914DBA83-5C70-4D97-BBE8-F4E4855540FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
