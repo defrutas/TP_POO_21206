@@ -1,11 +1,18 @@
-﻿using System;
+﻿/*
+*	<copyright file="Medic.cs" company="IPCA">
+*		Copyright (c) 2023 All Rights Reserved
+*	</copyright>
+* 	<author>Flavio Carvalho 21206</author>
+*	<description> creates medics </description>
+**/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-public enum TipoSpecialization
+public enum SpecializationType
 {
     CLINICA_GERAL,
     EPIDEMIOLOGIST,
@@ -20,7 +27,7 @@ namespace ClassLibrary1
     {
         #region Attributes
         private string email;
-        private TipoSpecialization specialization;
+        private SpecializationType specialization;
         #endregion
 
         #region Methods
@@ -35,7 +42,7 @@ namespace ClassLibrary1
             age = 43;
             gender = GenderType.MALE;
             email = "jonas@medic.com";
-            specialization = TipoSpecialization.NURSE;
+            specialization = SpecializationType.NURSE;
         }
         /// <summary>
         /// Constructor
@@ -47,7 +54,7 @@ namespace ClassLibrary1
         /// <param email="em"></param>
         /// <param NIF="nNIF"></param>
         /// <param specialization="s"></param>
-        public Medic(string name, int age, GenderType gen, string em,TipoSpecialization spec)
+        public Medic(string name, int age, GenderType gen, string em,SpecializationType spec)
         {
             this.name = name;
             this.age = age;
@@ -58,13 +65,18 @@ namespace ClassLibrary1
         #endregion
 
         #region Properties
+        /// <summary>
+        /// email associated to medics
+        /// </summary>
         public string Email
         {
             set { email = value; }
             get { return email; }
         }
-
-        public TipoSpecialization Specialization
+        /// <summary>
+        /// display specialization
+        /// </summary>
+        public SpecializationType Specialization
         {
             get { return specialization; }
         }

@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+*	<copyright file="Patient.cs" company="IPCA">
+*		Copyright (c) 2023 All Rights Reserved
+*	</copyright>
+* 	<author>Flavio Carvalho 21206</author>
+*	<description>Creates Patients</description>
+**/
+using System;
 
 namespace ClassLibrary1
 {
@@ -49,6 +56,7 @@ namespace ClassLibrary1
         /// </summary>
         #region PROPERTIES
         public int PatientID { get { return patientID; } }
+
         /// <summary>
         /// patients email address
         /// </summary>
@@ -57,6 +65,7 @@ namespace ClassLibrary1
             set { email = value; }
             get { return email; }
         }
+
         /// <summary>
         /// patients infection state, true or false
         /// </summary>

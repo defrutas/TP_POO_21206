@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+*	<copyright file="case.cs" company="IPCA">
+*		Copyright (c) 2023 All Rights Reserved
+*	</copyright>
+* 	<author>Flavio Carvalho 21206</author>
+*	<description> creates diferent cases </description>
+**/
+using System;
 
 namespace ClassLibrary1
 {
@@ -14,8 +21,13 @@ namespace ClassLibrary1
         #region METHODS
 
         #region CONSTRUCTORS
-
-        public Case(Person infectedPerson, DateTime dateConfirmed, bool isInfected)
+        /// <summary>
+        /// case constructor
+        /// </summary>
+        /// <param infectedPerson="infectedPerson"></param>
+        /// <param dateConfirmed="dateConfirmed"></param>
+        /// <param isInfected="isInfected"></param>
+        public Case(Patient infectedPerson, DateTime dateConfirmed, bool isInfected)
         {
             CaseId = nextCaseId++;
             InfectedPerson = infectedPerson;
@@ -27,20 +39,13 @@ namespace ClassLibrary1
 
         #region PROPERTIES
 
-        public int CaseId { get; set; }
-        public Person InfectedPerson { get; set; }
-        public DateTime DateConfirmed { get; set; }
-        public bool IsInfected { get; private set; }
-        //public Medic AssignedMedic { get; set; }
+        public int CaseId { get; set; } //case id
+        public Patient InfectedPerson { get; set; } // infected person
+        public DateTime DateConfirmed { get; set; } // current date for the confirmation
+        public bool IsInfected { get; private set; } // if the person is infected
+        public Medic AssignedMedic { get; set; } // assigned medic
 
         #endregion
-
-        #region OVERRIDES
-
-        //override ToString() if you want a custom string representation of the case
-
-        #endregion
-
         #endregion
     }
 }

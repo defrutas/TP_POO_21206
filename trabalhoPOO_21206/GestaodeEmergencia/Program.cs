@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+*	<copyright file="program.cs" company="IPCA">
+*		Copyright (c) 2023 All Rights Reserved
+*	</copyright>
+* 	<author>Flavio Carvalho 21206</author>
+*	<description> Main </description>
+**/
+using System;
 using System.Collections.Generic;
 using ClassLibrary1;
 
@@ -74,6 +81,60 @@ namespace GestaodeEmergencia
                 Console.WriteLine($"InfectedPerson: {Case.InfectedPerson}");
                 Console.WriteLine($"Date Confirmed: {Case.DateConfirmed}");
                 Console.WriteLine($"Is Infeced: {Case.IsInfected}\n");
+            }
+
+            // Create a list of Medics
+            List<Medic> medics = new List<Medic>
+            {
+                new Medic("Fernando", 34, GenderType.MALE, "fernando@medic.com", SpecializationType.CLINICA_GERAL),
+                new Medic("Dr. Johnson", 28, GenderType.MALE,"johnson@medic.com", SpecializationType.PUBLIC_HEALTH),
+                new Medic("Filipa", 30, GenderType.FEMALE, "medic3@medic.com", SpecializationType.INFECTIOUS_DISEASE_SPECIALIST),
+                new Medic("Joao", 40, GenderType.MALE, "medic4@medic.com", SpecializationType.INFECTIOUS_DISEASE_SPECIALIST),
+                new Medic("Rita", 36, GenderType.FEMALE, "medic5@medic.com", SpecializationType.INFECTIOUS_DISEASE_SPECIALIST),
+                new Medic("Ricardo", 45, GenderType.MALE, "medic6@medic.com", SpecializationType.INFECTIOUS_DISEASE_SPECIALIST),
+                new Medic("Joana", 39, GenderType.FEMALE, "medic7@medic.com", SpecializationType.INFECTIOUS_DISEASE_SPECIALIST),
+                new Medic("Tiago", 32, GenderType.MALE, "medic8@medic.com", SpecializationType.INFECTIOUS_DISEASE_SPECIALIST),
+                new Medic("Diana", 41, GenderType.FEMALE, "medic9@medic.com", SpecializationType.INFECTIOUS_DISEASE_SPECIALIST),
+                new Medic("Marco", 37, GenderType.MALE, "medic10@medic.com", SpecializationType.INFECTIOUS_DISEASE_SPECIALIST),
+                new Medic("Mariana", 31, GenderType.FEMALE, "medic11@medic.com", SpecializationType.INFECTIOUS_DISEASE_SPECIALIST),
+                new Medic("Flavio", 42, GenderType.MALE, "medic12@medic.com", SpecializationType.INFECTIOUS_DISEASE_SPECIALIST),
+                new Medic("Adneiza", 38, GenderType.FEMALE, "medic13@medic.com", SpecializationType.INFECTIOUS_DISEASE_SPECIALIST),
+                new Medic("Ezequiel", 33, GenderType.MALE, "medic14@medic.com", SpecializationType.INFECTIOUS_DISEASE_SPECIALIST),
+                new Medic("Ana", 44, GenderType.FEMALE, "medic15@medic.com", SpecializationType.INFECTIOUS_DISEASE_SPECIALIST),
+                new Medic("Diogo", 29, GenderType.MALE, "medic16@medic.com", SpecializationType.INFECTIOUS_DISEASE_SPECIALIST),
+                new Medic("Beatriz", 43, GenderType.FEMALE, "medic17@medic.com", SpecializationType.INFECTIOUS_DISEASE_SPECIALIST),
+                new Medic("Filipe", 35, GenderType.MALE, "medic18@medic.com", SpecializationType.INFECTIOUS_DISEASE_SPECIALIST),
+                new Medic("Ines", 46, GenderType.FEMALE, "medic19@medic.com", SpecializationType.INFECTIOUS_DISEASE_SPECIALIST),
+                new Medic("Fabio", 27, GenderType.MALE, "medic20@medic.com", SpecializationType.INFECTIOUS_DISEASE_SPECIALIST),
+                new Medic("Maria", 47, GenderType.FEMALE, "medic21@medic.com", SpecializationType.INFECTIOUS_DISEASE_SPECIALIST),
+                new Medic("Bernardo", 26, GenderType.MALE, "medic22@medic.com", SpecializationType.INFECTIOUS_DISEASE_SPECIALIST),
+                new Medic("Georgina", 48, GenderType.FEMALE, "medic23@medic.com", SpecializationType.INFECTIOUS_DISEASE_SPECIALIST),
+                new Medic("Leopoldo", 25, GenderType.MALE, "medic24@medic.com", SpecializationType.INFECTIOUS_DISEASE_SPECIALIST),
+                new Medic("Vania", 50, GenderType.FEMALE, "medic25@medic.com", SpecializationType.INFECTIOUS_DISEASE_SPECIALIST),
+            };
+
+            // Create an instance of MedicAssignmentManager
+            MedicAssignment medicManager = new MedicAssignment(medics);
+
+            // Create cases based on the list of people and assign medics
+            foreach (var patient in patientManager.GetPatients())
+            {
+                Case newCase = new Case(patient, DateTime.Now, patient.Infection);
+
+                // Assign a medic to the case
+                bool medicAssigned = medicManager.AssignMedic(newCase);
+
+                // Check if a medic was successfully assigned
+                if (medicAssigned)
+                {
+                    Console.WriteLine($"Medic assigned to Case ID {newCase.CaseId}: {newCase.AssignedMedic.Name}");
+                }
+                else
+                {
+                    Console.WriteLine($"No available medics for Case ID {newCase.CaseId}");
+                }
+
+                caseManager.AddCase(newCase.InfectedPerson, newCase.DateConfirmed, newCase.IsInfected);
             }
 
             // Update the metrics based on the list of cases

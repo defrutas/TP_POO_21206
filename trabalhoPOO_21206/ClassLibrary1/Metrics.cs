@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+*	<copyright file="Metrics.cs" company="IPCA">
+*		Copyright (c) 2023 All Rights Reserved
+*	</copyright>
+* 	<author>Flavio Carvalho 21206</author>
+*	<description>Responsible for showing diferent metrics about created cases</description>
+**/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

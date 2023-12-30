@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+*	<copyright file="Person.cs" company="IPCA">
+*		Copyright (c) 2023 All Rights Reserved
+*	</copyright>
+* 	<author>Flavio Carvalho 21206</author>
+*	<description>Person class</description>
+**/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -79,7 +86,6 @@ namespace ClassLibrary1
             set { address = value; }
             get { return address; }
         }
-
         public int Age
         {
             set { age = value; }
