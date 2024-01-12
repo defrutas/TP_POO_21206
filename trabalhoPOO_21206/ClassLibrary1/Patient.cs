@@ -57,6 +57,11 @@ namespace ClassLibrary1
         #region PROPERTIES
         public int PatientID { get { return patientID; } }
 
+        public string PatientName
+        {
+            get { return Name; }
+        }
+
         /// <summary>
         /// patients email address
         /// </summary>

@@ -78,7 +78,7 @@ namespace GestaodeEmergencia
             foreach (var Case in caseManager.GetCases())
             {
                 Console.WriteLine($"CaseID: {Case.CaseId}");
-                Console.WriteLine($"InfectedPerson: {Case.InfectedPerson}");
+                Console.WriteLine($"InfectedPerson: {Case.InfectedPerson.PatientName}");
                 Console.WriteLine($"Date Confirmed: {Case.DateConfirmed}");
                 Console.WriteLine($"Is Infeced: {Case.IsInfected}\n");
             }
@@ -113,35 +113,29 @@ namespace GestaodeEmergencia
                 new Medic("Vania", 50, GenderType.FEMALE, "medic25@medic.com", SpecializationType.INFECTIOUS_DISEASE_SPECIALIST),
             };
 
-            // Create an instance of MedicAssignmentManager
+            // Create an instance of MedicAssignment
             MedicAssignment medicManager = new MedicAssignment(medics);
 
-            // Create cases based on the list of people and assign medics
-            foreach (var patient in patientManager.GetPatients())
+            // Assign medics to existing cases
+            medicManager.AssignMedics(caseManager.GetCases());
+
+            // Display assigned medics
+            foreach (var Case in caseManager.GetCases())
             {
-                Case newCase = new Case(patient, DateTime.Now, patient.Infection);
-
-                // Assign a medic to the case
-                bool medicAssigned = medicManager.AssignMedic(newCase);
-
-                // Check if a medic was successfully assigned
-                if (medicAssigned)
-                {
-                    Console.WriteLine($"Medic assigned to Case ID {newCase.CaseId}: {newCase.AssignedMedic.Name}");
-                }
-                else
-                {
-                    Console.WriteLine($"No available medics for Case ID {newCase.CaseId}");
-                }
-
-                caseManager.AddCase(newCase.InfectedPerson, newCase.DateConfirmed, newCase.IsInfected);
+                Console.WriteLine($"CaseID: {Case.CaseId}");
+                Console.WriteLine($"InfectedPerson: {Case.InfectedPerson.PatientName}");
+                Console.WriteLine($"Date Confirmed: {Case.DateConfirmed}");
+                Console.WriteLine($"Is Infeced: {Case.IsInfected}");
+                Console.WriteLine($"Assigned Medic: {Case.AssignedMedic.Name}\n");
             }
+
+
 
             // Update the metrics based on the list of cases
             metrics.UpdateStatistics(caseManager.GetCases());
 
             // Display the results
-            Console.WriteLine($"Total Cases: {metrics.TotalCases}");
+            Console.WriteLine($"\nTotal Cases: {metrics.TotalCases}");
             Console.WriteLine($"Active Cases: {metrics.ActiveCases}");
             Console.WriteLine($"Recovered Cases: {metrics.RecoveredCases}\n");
 

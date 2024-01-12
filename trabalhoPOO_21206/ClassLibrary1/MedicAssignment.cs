@@ -16,39 +16,28 @@ namespace ClassLibrary1
     public class MedicAssignment
     {
         private List<Medic> medics;
+        private int lastAssignedMedicIndex = 0;
 
-        /// <summary>
-        /// medicAssignment constrctor
-        /// </summary>
-        /// <param name="medics"></param>
         public MedicAssignment(List<Medic> medics)
         {
             this.medics = medics;
         }
 
-        /// <summary>
-        /// assigns a random medic to an available case
-        /// </summary>
-        /// <param name="activeCase"></param>
-        /// <returns></returns>
-        public bool AssignMedic(Case activeCase)
+        public void AssignMedics(List<Case> cases)
         {
-            // Check if there are available medics
-            if (medics.Count > 0)
+            foreach (var caseItem in cases)
             {
-                // Assign a random available medic to the case
-                Random random = new Random();
-                int index = random.Next(medics.Count);
-                activeCase.AssignedMedic = medics[index];
+                if (lastAssignedMedicIndex >= medics.Count)
+                {
+                    lastAssignedMedicIndex = 0; // Reset to the first medic if we reach the end of the list
+                }
 
-                // Remove the assigned medic from the available medics list
-                medics.RemoveAt(index);
+                // Assign the medic to the case
+                caseItem.AssignedMedic = medics[lastAssignedMedicIndex];
 
-                return true;
+                // Move to the next medic
+                lastAssignedMedicIndex++;
             }
-
-            // No available medics to assign
-            return false;
         }
     }
 }

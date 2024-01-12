@@ -27,9 +27,9 @@ namespace ClassLibrary1
         /// <param infectedPerson="infectedPerson"></param>
         /// <param dateConfirmed="dateConfirmed"></param>
         /// <param isInfected="isInfected"></param>
-        public Case(Patient infectedPerson, DateTime dateConfirmed, bool isInfected)
+        public Case(int caseId, Patient infectedPerson, DateTime dateConfirmed, bool isInfected)
         {
-            CaseId = nextCaseId++;
+            CaseId = caseId;
             InfectedPerson = infectedPerson;
             DateConfirmed = dateConfirmed;
             IsInfected = isInfected;
@@ -39,7 +39,7 @@ namespace ClassLibrary1
 
         #region PROPERTIES
 
-        public int CaseId { get; set; } //case id
+        public int CaseId { get; private set; } //case id
         public Patient InfectedPerson { get; set; } // infected person
         public DateTime DateConfirmed { get; set; } // current date for the confirmation
         public bool IsInfected { get; private set; } // if the person is infected
