@@ -1,4 +1,4 @@
-﻿namespace Excecoes
+﻿namespace ClassLibrary1
 {
     /// <summary>
     /// Custom exception for patient comparison errors

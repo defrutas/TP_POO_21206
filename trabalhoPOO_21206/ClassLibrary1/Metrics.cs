@@ -298,9 +298,6 @@ namespace ClassLibrary1
                 TotalCases = totalCases,
                 ActiveCases = activeCases,
                 RecoveredCases = recoveredCases,
-                MaleCases = MaleCases,
-                FemaleCases = FemaleCases,
-                NonBinaryCases = NonBinaryCases,
                 MalePercentage = MalePercentage,
                 FemalePercentage = FemalePercentage,
                 NonBinaryPercentage = NonBinaryPercentage

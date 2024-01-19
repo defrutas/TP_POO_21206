@@ -5,7 +5,7 @@
 * 	<author>Flavio Carvalho 21206</author>
 *	<description>Creates Patients</description>
 **/
-using Excecoes;
+using ClassLibrary1;
 using System;
 
 namespace ClassLibrary1
