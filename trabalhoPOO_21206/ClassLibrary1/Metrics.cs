@@ -13,28 +13,6 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary1
 {
-    public class UpdateStatisticsResult
-    {
-        public int TotalCases { get; set; }
-        public int ActiveCases { get; set; }
-        public int RecoveredCases { get; set; }
-
-        // Properties for age distribution
-        public Dictionary<int, int> AgeDistribution { get; set; }
-
-        // Properties for gender statistics
-        public int MaleCases { get; set; }
-        public int FemaleCases { get; set; }
-        public int NonBinaryCases { get; set; }
-        public double MalePercentage { get; set; }
-        public double FemalePercentage { get; set; }
-        public double NonBinaryPercentage { get; set; }
-
-        // Properties for region distribution
-        public Dictionary<string, int> RegionDistribution { get; set; }
-    }
-
-
     /// <summary>
     /// parent class responsible for tracking infections
     /// </summary>
@@ -52,18 +30,11 @@ namespace ClassLibrary1
         /// Takes a list of Case objects and updates the metrics based on the provided cases
         /// Counts total number of cases, active cases and recovered cases
         /// </summary>
-        public virtual UpdateStatisticsResult UpdateStatistics(List<Case> cases)
+        public virtual void UpdateStatistics(List<Case> cases)
         {
             totalCases = cases.Count;
             activeCases = cases.Count(c => c.IsInfected);
             recoveredCases = cases.Count(c => !c.IsInfected);
-
-            return new UpdateStatisticsResult
-            {
-                TotalCases = totalCases,
-                ActiveCases = activeCases,
-                RecoveredCases = recoveredCases
-            };
         }
         #endregion
 
@@ -139,7 +110,7 @@ namespace ClassLibrary1
         /// Counts the number of cases for each age
         /// </summary>
         /// <param name="cases"></param>
-        public override UpdateStatisticsResult UpdateStatistics(List<Case> cases)
+        public override void UpdateStatistics(List<Case> cases)
         {
             base.UpdateStatistics(cases);
 
@@ -158,16 +129,7 @@ namespace ClassLibrary1
                     ageDistribution[age] = 1;
                 }
             }
-
-            return new UpdateStatisticsResult
-            {
-                TotalCases = totalCases,
-                ActiveCases = activeCases,
-                RecoveredCases = recoveredCases,
-                AgeDistribution = ageDistribution
-            };
         }
-
         #endregion
 
         #endregion
@@ -267,7 +229,7 @@ namespace ClassLibrary1
         /// counts based on the gender of infected persons.
         /// </summary>
         /// <param name="cases"></param>
-        public override UpdateStatisticsResult UpdateStatistics(List<Case> cases)
+        public override void UpdateStatistics(List<Case> cases)
         {
             foreach (var person in cases.Select(c => c.InfectedPerson))
             {
@@ -289,23 +251,14 @@ namespace ClassLibrary1
 
             int totalCases = cases.Count;
 
-            MalePercentage = CalculatePercentage(MaleCases, totalCases);
-            FemalePercentage = CalculatePercentage(FemaleCases, totalCases);
-            NonBinaryPercentage = CalculatePercentage(NonBinaryCases, totalCases);
-
-            return new UpdateStatisticsResult
+            if (totalCases > 0)
             {
-                TotalCases = totalCases,
-                ActiveCases = activeCases,
-                RecoveredCases = recoveredCases,
-                MaleCases = MaleCases,
-                FemaleCases = FemaleCases,
-                NonBinaryCases = NonBinaryCases,
-                MalePercentage = MalePercentage,
-                FemalePercentage = FemalePercentage,
-                NonBinaryPercentage = NonBinaryPercentage
-            };
+                MalePercentage = CalculatePercentage(MaleCases, totalCases);
+                FemalePercentage = CalculatePercentage(FemaleCases, totalCases);
+                NonBinaryPercentage = CalculatePercentage(NonBinaryCases, totalCases);
+            }
         }
+
         #endregion
 
         /// <summary>
@@ -376,7 +329,7 @@ namespace ClassLibrary1
         /// based on the region of infected persons.
         /// </summary>
         /// <param name="cases"></param>
-        public override UpdateStatisticsResult UpdateStatistics(List<Case> cases)
+        public override void UpdateStatistics(List<Case> cases)
         {
             base.UpdateStatistics(cases);
 
@@ -395,14 +348,6 @@ namespace ClassLibrary1
                     regionDistribution[region] = 1;
                 }
             }
-
-            return new UpdateStatisticsResult
-            {
-                TotalCases = totalCases,
-                ActiveCases = activeCases,
-                RecoveredCases = recoveredCases,
-                RegionDistribution = regionDistribution
-            };
         }
         #endregion
         #endregion

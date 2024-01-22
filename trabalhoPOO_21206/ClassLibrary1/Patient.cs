@@ -5,20 +5,43 @@
 * 	<author>Flavio Carvalho 21206</author>
 *	<description>Creates Patients</description>
 **/
+using ClassLibrary1;
+using ClassLibrary1.Exceptions;
 using System;
 
 namespace ClassLibrary1
 {
-    public class Patient : Person
+    public class Patient : Person, IComparable<Patient>
     {
         #region ATTRIBUTES
-        private static int nextPatientID = 1; // Used to automatically generate unique patient IDs
+        public static int nextPatientID = 1; // Used to automatically generate unique patient IDs
         private int patientID;
         private string email;
-        protected bool infection;
+        private bool infection;
         #endregion
 
         #region METHODS
+        /// <summary>
+        /// Compare Patient objects to other patients by name
+        /// </summary>
+        /// <param name="otherPatient"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public int CompareTo(Patient otherPatient)
+        {
+            if (otherPatient == null)
+            {
+                throw new PatientComparisonException();
+            }
+            
+            if (this.PatientID == otherPatient.PatientID)
+            {
+                throw new PatientComparisonException("Patients have the same ID.");
+            }
+
+            return this.name.CompareTo(otherPatient.name);
+        }
+
 
         #region CONSTRUCTORS
         /// <summary>
@@ -43,25 +66,27 @@ namespace ClassLibrary1
         /// <param age="age"></param>
         public Patient(string name, GenderType gender, string address, bool infection, int age)
         {
+            //prevent negative ages
+            if (age < 0)
+            {
+                throw new InvalidAgeException();
+            }
+
             patientID = nextPatientID++;
             Name = name;
             Gender = gender;
             Address = address;
             Infection = infection;
-            Age = age; // Use the specified age value
+            Age = age; 
         }
         #endregion
+
+        #region PROPERTIES
         /// <summary>
         /// patients ID 
         /// </summary>
-        #region PROPERTIES
         public int PatientID { get { return patientID; } }
-
-        public string PatientName
-        {
-            get { return Name; }
-        }
-
+        
         /// <summary>
         /// patients email address
         /// </summary>
@@ -79,9 +104,7 @@ namespace ClassLibrary1
             set { infection = value; }
             get { return infection; }
         }
-
         #endregion
-
         #endregion
     }
 }
